@@ -1,3 +1,4 @@
 [build]
-  dir = "dist"
+  command = "yarn webpack --config webpack/functions.config.js"
+  publish = "dist"
   functions = "functions"
