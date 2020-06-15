@@ -13,7 +13,7 @@ module.exports = (_, argv) => {
             loader: "ts-loader",
             options: {
               transpileOnly: true,
-              configFile: "webpack.tsconfig.json",
+              configFile: "tsconfig.front.json",
             },
           },
         },

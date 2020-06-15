@@ -1,8 +1,9 @@
 const path = require("path");
 module.exports = (_, argv) => {
   return {
+    target: "node",
     entry: {
-      hello: path.join(__dirname, "../src/functions/hello"),
+      api: path.join(__dirname, "../src/functions/api"),
     },
     output: {
       path: path.join(__dirname, "../functions"),
@@ -16,6 +17,7 @@ module.exports = (_, argv) => {
             loader: "ts-loader",
             options: {
               transpileOnly: true,
+              configFile: "tsconfig.functions.json",
             },
           },
         },
