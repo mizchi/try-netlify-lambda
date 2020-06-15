@@ -1,0 +1,6 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "lodash-es": "^4.17.15"
+  }
+}
