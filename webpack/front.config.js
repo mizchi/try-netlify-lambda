@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlPlugin = require("html-webpack-plugin");
+
 module.exports = (_, argv) => {
+  const isProd = argv.mode === "production";
   return {
     entry: {
       main: path.join(__dirname, "../src/front/index"),

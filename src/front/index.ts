@@ -1,7 +1,9 @@
 const API_ENDPOINT = location.host.startsWith("localhost")
-  ? "http://localhost:9000/api"
-  : "/.netlify/functions/api";
-fetch(API_ENDPOINT).then(async (res) => {
+  ? "http://localhost:9000"
+  : "/.netlify/functions";
+console.log(process.env.NODE_ENV);
+
+fetch(API_ENDPOINT + "/api").then(async (res) => {
   const data = await res.text();
-  console.log("data", data);
+  document.body.textContent = JSON.stringify(data);
 });
