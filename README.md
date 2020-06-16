@@ -11,3 +11,7 @@ yarn dev
 ```
 yarn dev
 ```
+
+## LICENSE
+
+MIT

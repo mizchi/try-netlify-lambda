@@ -1,15 +1,24 @@
 import express from "express";
 import serverless from "serverless-http";
 
-const app = express();
+const isProd = process.env.NODE === "production";
 
-app.get("/*", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.send("ok/api " + req.url);
+const app = express();
+const router = express.Router();
+
+router.use((_req, res, next) => {
+  if (!isProd) {
+    res.header("Access-Control-Allow-Origin", "*");
+  }
+  next();
 });
 
-module.exports.handler = serverless(app);
+router.get<{ id: string }>("/:id", (req, res) => {
+  res.send("ok " + req.params.id);
+});
+
+const apiRoot =
+  process.env.NODE_ENV === "production" ? ".netlify/functions/api" : "/api";
+app.use(apiRoot, router);
+
+exports.handler = serverless(app);
