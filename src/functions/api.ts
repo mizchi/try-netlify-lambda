@@ -18,7 +18,7 @@ router.get<{ id: string }>("/:id", (req, res) => {
 });
 
 const apiRoot =
-  process.env.NODE_ENV === "production" ? ".netlify/functions/api" : "/api";
+  process.env.NODE_ENV === "production" ? "/.netlify/functions/api" : "/api";
 app.use(apiRoot, router);
 
 exports.handler = serverless(app);

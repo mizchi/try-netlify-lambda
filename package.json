@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "run-s build:*",
-    "build:fns": "webpack --config webpack/functions.config.js",
-    "build:front": "webpack --config webpack/front.config.js",
+    "build": "rimraf functions && rimraf dist && run-s build:*",
+    "build:fns": "webpack --config webpack/functions.config.js --mode production",
+    "build:front": "webpack --config webpack/front.config.js --mode production",
     "dev": "run-p dev:*",
     "dev:front": "webpack-dev-server --config webpack/front.config.js -w",
     "dev:fns": "rimraf functions && run-p dev:fns:*",
