@@ -9,7 +9,7 @@ app.get("/api", (req, res) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.send("ok api");
+  res.send("ok/api");
 });
 
 module.exports.handler = serverless(app);

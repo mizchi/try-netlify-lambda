@@ -110,5 +110,4 @@ dist
 
 
 .netlify
-functions/*.js
-!functions/webpack.config.js
+functions
